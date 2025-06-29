@@ -12,6 +12,6 @@ def limpiar_input(user_input):
 
 if __name__ == "__main__":
     entrada = input("Introduce un texto: ")
-    limpio = limpiar_input(entrada).lower()
+    limpio = limpiar_input(entrada)
     print(f"Texto limpio: {limpio}")
 
