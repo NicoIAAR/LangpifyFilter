@@ -1,8 +1,14 @@
 import re
 
 def limpiar_input(user_input):
+    # Reemplazar strings específicos con '' primero
+    strings_vacios = ['1=1', '2=2', '3=3', '4=4', '5=5', '6=6', '7=7', '8=8', '9=9']
+    texto_limpio = user_input
+    for string_vacio in strings_vacios:
+        texto_limpio = texto_limpio.replace(string_vacio, '')
+    
     # Solo permite letras (incluyendo acentos, diéresis y ñ), números y espacios
-    texto_limpio = re.sub(r'[^a-zA-Z0-9 áéíóúÁÉÍÓÚüÜñÑ]', '', user_input)
+    texto_limpio = re.sub(r'[^a-zA-Z0-9 áéíóúÁÉÍÓÚüÜñÑ]', '', texto_limpio)
     # Elimina palabras peligrosas
     palabras_prohibidas = [
         'DATABASE', 'base de datos','mysql', 'SQL', 'SELECT', 'UPDATE', 'GET', 'DELETE', 'POST', 'PUT', 'TABLE', 'GROUP BY', 'ORDER BY', 'INSERT',
@@ -21,6 +27,7 @@ def limpiar_input(user_input):
     for palabra in palabras_prohibidas:
         # Elimina la palabra, sin importar mayúsculas/minúsculas
         texto_limpio = re.sub(palabra, '', texto_limpio, flags=re.IGNORECASE)
+    
     return texto_limpio
 
 if __name__ == "__main__":
