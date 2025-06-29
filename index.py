@@ -1,8 +1,8 @@
 import re
 
 def limpiar_input(user_input):
-    # Solo permite letras, números y espacios
-    texto_limpio = re.sub(r'[^a-zA-Z0-9 ]', '', user_input)
+    # Solo permite letras (incluyendo acentos, diéresis y ñ), números y espacios
+    texto_limpio = re.sub(r'[^a-zA-Z0-9 áéíóúÁÉÍÓÚüÜñÑ]', '', user_input)
     # Elimina palabras peligrosas
     palabras_prohibidas = [r'DATABASE', r'base de datos', r'SQL', r'SELECT', r'UPDATE', r'GET', r'DELETE', r'POST', r'PUT', r'TABLE', r'GROUP BY', r'ORDER BY', r'INSERT',r'INNER JOIN' r'mysql',r'mongodb', r'mongo', r'mongod', r'mongoose', r'mongo' r'password', r'username', r'user', r'pass', r'root', r'admin', r'contraseña', r'Ignore previous instructions', r'ignorar instrucciones previas', r'inspect', r'html', r'xss', r'iframe', r'script', r'http', r'https', r'localhost', r'cookie', r'cookies', r'function', r'void', r'xhr', r'php', r'htmlentities', r'alert', r'xml']
     for palabra in palabras_prohibidas:
