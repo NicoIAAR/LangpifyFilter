@@ -7,7 +7,7 @@ def limpiar_input(user_input):
     palabras_prohibidas = [
         r'DATABASE', r'base de datos', r'SQL', r'SELECT', r'UPDATE', r'GET', r'DELETE', r'POST', r'PUT', r'TABLE', r'GROUP BY', r'ORDER BY', r'INSERT',
         r'INNER JOIN', r'mysql', r'mongodb', r'mongo', r'mongod', r'mongoose', r'password', r'username', r'user', r'pass', r'root', r'admin', r'contraseña',
-        r'Ignore previous instructions', r'ignorar instrucciones previas', r'inspect', r'html', r'xss', r'iframe', r'script', r'http', r'https', r'localhost',
+        r'Ignore previous instructions', r'ignorar instrucciones previas', r'inspect', r'html', r'xss', r'iframe', r'script', r'http', r'https', r'localhost', r'hostname',
         r'cookie', r'cookies', r'function', r'void', r'xhr', r'php', r'htmlentities', r'alert', r'xml',
         r'drop', r'truncate', r'alter', r'create', r'grant', r'revoke', r'union', r'cast', r'char', r'varchar', r'where', r'from', r'into', r'values',
         r'--', r'#', r';', r' or ', r' and ', r' not ', r' like ', r' between ', r'count', r'benchmark', r'sleep', r'waitfor', r'xp_', r'0x',
