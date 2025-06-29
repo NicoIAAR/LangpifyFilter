@@ -1,3 +1,4 @@
+#Langpify Filter
 import re
 
 def limpiar_input(user_input):
@@ -20,7 +21,7 @@ def limpiar_input(user_input):
         'load_file', 'outfile', 'dumpfile', 'shutdown', 'exec', 'execute', 'xp_cmdshell', 'openrowset', 'openquery', 'sysobjects', 'syscolumns',
         'information_schema', 'pg_', 'pg_catalog', 'current_user', 'session_user', 'system_user', 'pg_sleep', 'pg_terminate_backend',
         '@@version', '@@hostname', '@@datadir', '@@tmpdir', '@@basedir', '@@innodb_version', '@@version_compile_os',
-        'file_priv', 'root@', '0=0', '1=1', '2=2', '3=3', '4=4', '5=5', '6=6', '7=7', '8=8', '9=9'
+        'file_priv', 'root@'
     ]
     # Agregar el prefijo r'' a cada palabra
     palabras_prohibidas_o = [f"r'{palabra}'" for palabra in palabras_prohibidas]
