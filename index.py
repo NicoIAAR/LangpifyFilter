@@ -8,8 +8,8 @@ def limpiar_input(user_input):
     for string_vacio in strings_vacios:
         texto_limpio = texto_limpio.replace(string_vacio, '')
     
-    # Solo permite letras (incluyendo acentos, diéresis y ñ), números y espacios
-    texto_limpio = re.sub(r'[^a-zA-Z0-9 áéíóúÁÉÍÓÚüÜñÑ]', '', texto_limpio)
+    # Solo permite letras (incluyendo acentos, diéresis y ñ), números, espacios, comas y puntos
+    texto_limpio = re.sub(r'[^a-zA-Z0-9 áéíóúÁÉÍÓÚüÜñÑ,.]', '', texto_limpio)
     # Elimina palabras peligrosas
     palabras_prohibidas = [
         'DATABASE', 'base de datos','mysql', 'SQL', 'SELECT', 'UPDATE', 'GET', 'DELETE', 'POST', 'PUT', 'TABLE', 'GROUP BY', 'ORDER BY', 'INSERT',
@@ -17,7 +17,7 @@ def limpiar_input(user_input):
         'Ignore previous instructions', 'ignorar instrucciones previas', 'inspect', 'html', 'xss', 'iframe', 'script', 'http', 'https', 'localhost', 'hostname',
         'cookie', 'cookies', 'function', 'void', 'xhr', 'php', 'htmlentities', 'alert', 'xml',
         'drop', 'truncate', 'alter', 'create', 'grant', 'revoke', 'union', 'cast', 'char', 'varchar', 'where', 'from', 'into', 'values',
-        '--', '#', ';', ' or ', ' and ', ' not ', ' like ', ' between ', 'count', 'benchmark', 'sleep', 'waitfor', 'xp_', '0x',
+        '--', '#', ';', ' like ', ' between ', 'count', 'benchmark', 'sleep', 'waitfor', 'xp_', '0x',
         'load_file', 'outfile', 'dumpfile', 'shutdown', 'exec', 'execute', 'xp_cmdshell', 'openrowset', 'openquery', 'sysobjects', 'syscolumns',
         'information_schema', 'pg_', 'pg_catalog', 'current_user', 'session_user', 'system_user', 'pg_sleep', 'pg_terminate_backend',
         '@@version', '@@hostname', '@@datadir', '@@tmpdir', '@@basedir', '@@innodb_version', '@@version_compile_os',
