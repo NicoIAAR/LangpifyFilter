@@ -17,7 +17,7 @@ def clean_input(user_input):
         'Ignore previous instructions', 'ignorar instrucciones previas', 'inspect', 'html', 'xss', 'iframe', 'script', 'ssh', 'http', 'https', 'localhost', 'hostname',
         'cookie', 'cookies', 'function', 'void', 'xhr', 'php', 'htmlentities', 'alert', 'xml',
         'drop', 'truncate', 'alter', 'create', 'grant', 'revoke', 'union', 'cast', 'char', 'varchar', 'where', 'from', 'into', 'values',
-        '--', '#', ';', ' like ', ' between ', 'count', 'benchmark', 'sleep', 'waitfor', 'xp_', '0x',
+        '--', '#', ';', ' between ', 'count', 'benchmark', 'sleep', 'waitfor', 'xp_', '0x',
         'load_file', 'outfile', 'dumpfile', 'shutdown', 'exec', 'execute', 'xp_cmdshell', 'openrowset', 'openquery', 'sysobjects', 'syscolumns',
         'information_schema', 'pg_', 'pg_catalog', 'current_user', 'session_user', 'system_user', 'pg_sleep', 'pg_terminate_backend',
         '@@version', '@@hostname', '@@datadir', '@@tmpdir', '@@basedir', '@@innodb_version', '@@version_compile_os',
