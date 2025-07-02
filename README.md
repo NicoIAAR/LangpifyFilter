@@ -1,5 +1,5 @@
 # Langpify Filter
-Langpify Filter is used to prevent SQL injection in LLMs
+Usá Langpify Filter para evitar SQL injection en LLMs removiendo palabras y caracteres peligrosos.
 
-Langpify Filter sirve para evitar SQL injection en LLMs
+Use Langpify Filter to prevent SQL injection in LLMs by removing dangerous words and characters.
 
