@@ -1,17 +1,17 @@
 #Langpify Filter
 import re
 
-def limpiar_input(user_input):
-    # Reemplazar strings específicos con '' primero
-    strings_vacios = ['1=1', '2=2', '3=3', '4=4', '5=5', '6=6', '7=7', '8=8', '9=9']
-    texto_limpio = user_input
-    for string_vacio in strings_vacios:
-        texto_limpio = texto_limpio.replace(string_vacio, '')
+def clean_input(user_input):
+    # Replace specific strings with empty string first
+    empty_strings = ['1=1', '2=2', '3=3', '4=4', '5=5', '6=6', '7=7', '8=8', '9=9']
+    clean_text = user_input
+    for empty_str in empty_strings:
+        clean_text = clean_text.replace(empty_str, '')
     
-    # Solo permite letras (incluyendo acentos, diéresis y ñ), números, espacios, comas y puntos
-    texto_limpio = re.sub(r'[^a-zA-Z0-9 áéíóúÁÉÍÓÚüÜñÑ,.]', '', texto_limpio)
-    # Elimina palabras peligrosas
-    palabras_prohibidas = [
+    # Allow only letters (including accents, dieresis, ñ), numbers, spaces, commas and periods
+    clean_text = re.sub(r'[^a-zA-Z0-9 áéíóúÁÉÍÓÚüÜñÑ,.]', '', clean_text)
+    # Remove dangerous words
+    forbidden_words = [
         'DATABASE', 'base de datos','mysql', 'SQL', 'SELECT', 'UPDATE', 'GET', 'DELETE', 'POST', 'PUT', 'TABLE', 'GROUP BY', 'ORDER BY', 'INSERT',
         'INNER JOIN', 'mongodb', 'mongo', 'mongod', 'mongoose', 'password', 'username', 'user', 'pass', 'root', 'admin', 'contraseña', 'ignore',
         'Ignore previous instructions', 'ignorar instrucciones previas', 'inspect', 'html', 'xss', 'iframe', 'script', 'ssh', 'http', 'https', 'localhost', 'hostname',
@@ -23,17 +23,17 @@ def limpiar_input(user_input):
         '@@version', '@@hostname', '@@datadir', '@@tmpdir', '@@basedir', '@@innodb_version', '@@version_compile_os',
         'file_priv', 'root@', 'exploit', 'wget', 'hydra', 'nmap', '.exe', 'xp_', '0x', 'benchmark'
     ]
-    # Agregar el prefijo r'' a cada palabra
-    palabras_prohibidas_o = [f"r'{palabra}'" for palabra in palabras_prohibidas]
-    for palabra in palabras_prohibidas:
-        # Elimina la palabra, sin importar mayúsculas/minúsculas
-        texto_limpio = re.sub(palabra, '', texto_limpio, flags=re.IGNORECASE)
+    # Add r'' prefix to each word (for regex)
+    forbidden_words = [r'' + word for word in forbidden_words]
+    for word in forbidden_words:
+        # Remove the word, case insensitive
+        clean_text = re.sub(word, '', clean_text, flags=re.IGNORECASE)
     
-    return texto_limpio
+    return clean_text
 
 if __name__ == "__main__":
-    entrada = input("Introduce un texto: ")
-    limpio = limpiar_input(entrada)
-    print(f"Texto limpio: {limpio}")
+    entry = input("Enter a text: ")
+    cleaned = clean_input(entry)
+    print(f"Cleaned text: {cleaned}")
 
 
