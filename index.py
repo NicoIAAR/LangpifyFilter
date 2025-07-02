@@ -21,7 +21,7 @@ def limpiar_input(user_input):
         'load_file', 'outfile', 'dumpfile', 'shutdown', 'exec', 'execute', 'xp_cmdshell', 'openrowset', 'openquery', 'sysobjects', 'syscolumns',
         'information_schema', 'pg_', 'pg_catalog', 'current_user', 'session_user', 'system_user', 'pg_sleep', 'pg_terminate_backend',
         '@@version', '@@hostname', '@@datadir', '@@tmpdir', '@@basedir', '@@innodb_version', '@@version_compile_os',
-        'file_priv', 'root@', 'exploit', 'wget', 'hydra', 'nmap', '.exe'
+        'file_priv', 'root@', 'exploit', 'wget', 'hydra', 'nmap', '.exe', 'xp_', '0x', 'waitfor', 'benchmark'
     ]
     # Agregar el prefijo r'' a cada palabra
     palabras_prohibidas_o = [f"r'{palabra}'" for palabra in palabras_prohibidas]
