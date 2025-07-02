@@ -8,8 +8,8 @@ def clean_input(user_input):
     for empty_str in empty_strings:
         clean_text = clean_text.replace(empty_str, '')
     
-    # Allow only letters (including accents, dieresis, ñ), numbers, spaces, commas and periods
-    clean_text = re.sub(r'[^a-zA-Z0-9 áéíóúÁÉÍÓÚüÜñÑ,.]', '', clean_text)
+    # Allow only letters (including accents, dieresis, ñ, ç, ã, õ, ê, â, ô, î, û, à, è, ù, ë, ï, ö, ü, œ, æ, ÿ, ç, Ç), numbers, spaces, commas and periods
+    clean_text = re.sub(r'[^a-zA-Z0-9 áéíóúÁÉÍÓÚüÜñÑãõÃÕâêîôûÂÊÎÔÛàèùÀÈÙëïöüËÏÖÜœŒæÆÿŸçÇ,.]', '', clean_text)
     # Remove dangerous words
     forbidden_words = [
         'DATABASE', 'base de datos','mysql', 'SQL', 'SELECT', 'UPDATE', 'GET', 'DELETE', 'POST', 'PUT', 'TABLE', 'GROUP BY', 'ORDER BY', 'INSERT',
