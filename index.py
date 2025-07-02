@@ -8,7 +8,7 @@ def clean_input(user_input):
     for empty_str in empty_strings:
         clean_text = clean_text.replace(empty_str, '')
     
-    # Allow only letters (including accents, dieresis, ñ, ç, ã, õ, ê, â, ô, î, û, à, è, ù, ë, ï, ö, ü, œ, æ, ÿ, ç, Ç), numbers, spaces, commas, periods, and CJK (Chinese, Japanese, Korean) characters
+    # Allow only letters (including accents, ñ, ç, ã, õ, ê, â, ô, î, û, à, è, ù, ë, ï, ö, ü, œ, æ, ÿ, ç, Ç), numbers, spaces, commas, periods, and CJK (Chinese, Japanese, Korean) characters
     clean_text = re.sub(r'[^a-zA-Z0-9 áéíóúÁÉÍÓÚüÜñÑãõÃÕâêîôûÂÊÎÔÛàèùÀÈÙëïöüËÏÖÜœŒæÆÿŸçÇ\u4e00-\u9fff\u3040-\u30ff\u3400-\u4dbf,.]', '', clean_text)
     # Remove dangerous words
     forbidden_words = [
