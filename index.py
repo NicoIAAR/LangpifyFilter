@@ -21,7 +21,7 @@ def clean_input(user_input):
         'load_file', 'outfile', 'dumpfile', 'shutdown', 'exec', 'execute', 'xp_cmdshell', 'openrowset', 'openquery', 'sysobjects', 'syscolumns',
         'information_schema', 'pg_', 'pg_catalog', 'current_user', 'session_user', 'system_user', 'pg_sleep', 'pg_terminate_backend',
         '@@version', '@@hostname', '@@datadir', '@@tmpdir', '@@basedir', '@@innodb_version', '@@version_compile_os',
-        'file_priv', 'root@', 'exploit', 'wget', 'hydra', 'nmap', '.exe', 'xp_', '0x', 'benchmark'
+        'file_priv', 'root@', 'exploit', 'wget', 'hydra', 'nmap', '.exe', 'xp_', '0x', 'benchmark', '.dmg'
     ]
     # Add r'' prefix to each word (for regex)
     forbidden_words = [r'' + word for word in forbidden_words]
