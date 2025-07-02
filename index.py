@@ -1,17 +1,21 @@
 #Langpify Filter
 import re
 
-def clean_input(user_input):
-    # Replace specific strings with empty string first
-    empty_strings = ['1=1', '2=2', '3=3', '4=4', '5=5', '6=6', '7=7', '8=8', '9=9']
-    clean_text = user_input
-    for empty_str in empty_strings:
-        clean_text = clean_text.replace(empty_str, '')
+def limpiar_entrada(entrada_usuario):
+    """
+    Limpia el texto de entrada eliminando cadenas y palabras peligrosas,
+    y permitiendo solo caracteres seguros (incluyendo español, francés, portugués, chino y japonés).
+    """
+    # Lista de cadenas que deben eliminarse completamente
+    cadenas_vacias = ['1=1', '2=2', '3=3', '4=4', '5=5', '6=6', '7=7', '8=8', '9=9']
+    texto_limpio = entrada_usuario
+    for cadena in cadenas_vacias:
+        texto_limpio = texto_limpio.replace(cadena, '')
     
-    # Allow only letters (including accents, ñ, ç, ã, õ, ê, â, ô, î, û, à, è, ù, ë, ï, ö, ü, œ, æ, ÿ, ç, Ç), numbers, spaces, commas, periods, and CJK (Chinese, Japanese, Korean) characters
-    clean_text = re.sub(r'[^a-zA-Z0-9 áéíóúÁÉÍÓÚüÜñÑãõÃÕâêîôûÂÊÎÔÛàèùÀÈÙëïöüËÏÖÜœŒæÆÿŸçÇ\u4e00-\u9fff\u3040-\u30ff\u3400-\u4dbf,.]', '', clean_text)
+    # Permitir solo letras (con acentos, diéresis, ñ, ç, ã, õ, ê, â, ô, î, û, à, è, ù, ë, ï, ö, ü, œ, æ, ÿ, ç, Ç), números, espacios, comas, puntos y caracteres Chinos y Japoneses
+    texto_limpio = re.sub(r'[^a-zA-Z0-9 áéíóúÁÉÍÓÚüÜñÑãõÃÕâêîôûÂÊÎÔÛàèùÀÈÙëïöüËÏÖÜœŒæÆÿŸçÇ\u4e00-\u9fff\u3040-\u30ff\u3400-\u4dbf,.]', '', texto_limpio)
     # Remove dangerous words
-    forbidden_words = [
+    palabras_prohibidas = [
         'DATABASE', 'base de datos','mysql', 'SQL', 'SELECT', 'UPDATE', 'GET', 'DELETE', 'POST', 'PUT', 'TABLE', 'GROUP BY', 'ORDER BY', 'INSERT',
         'INNER JOIN', 'mongodb', 'mongo', 'mongod', 'mongoose', 'password', 'username', 'user', 'pass', 'root', 'admin', 'contraseña', 'ignore',
         'Ignore previous instructions', 'ignorar instrucciones previas', 'inspect', 'html', 'xss', 'iframe', 'script', 'ssh', 'http', 'https', 'localhost', 'hostname',
@@ -23,17 +27,19 @@ def clean_input(user_input):
         '@@version', '@@hostname', '@@datadir', '@@tmpdir', '@@basedir', '@@innodb_version', '@@version_compile_os',
         'file_priv', 'root@', 'exploit', 'wget', 'hydra', 'nmap', '.exe', 'xp_', '0x', 'benchmark', '.dmg', 'bash'
     ]
-    # Add r'' prefix to each word (for regex)
-    forbidden_words = [r'' + word for word in forbidden_words]
-    for word in forbidden_words:
-        # Remove the word, case insensitive
-        clean_text = re.sub(word, '', clean_text, flags=re.IGNORECASE)
+    # Agrega el prefijo r'' por cada palabra
+    palabras_prohibidas = [r'' + palabra for palabra in palabras_prohibidas]
+    for palabra in palabras_prohibidas:
+        # Eliminar la palabra, sin importar mayúsculas/minúsculas
+        texto_limpio = re.sub(palabra, '', texto_limpio, flags=re.IGNORECASE)
     
-    return clean_text
+    # Eliminar espacios redundantes
+    texto_limpio = re.sub(r'\s+', ' ', texto_limpio).strip()
+    return texto_limpio
 
 if __name__ == "__main__":
-    entry = input("Enter a text: ")
-    cleaned = clean_input(entry)
-    print(f"Cleaned text: {cleaned}")
+    entrada = input("Ingrese un texto: ")
+    texto_limpio = limpiar_entrada(entrada)
+    print(f"Texto limpio: {texto_limpio}")
 
 
