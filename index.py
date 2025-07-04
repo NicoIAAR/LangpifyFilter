@@ -3,13 +3,13 @@ import re
 
 def limpiar_entrada(entrada_usuario):
     """
-    Limpia el texto de entrada eliminando cadenas y palabras peligrosas,
+    Limpia el texto de entrada eliminando strings y palabras peligrosas,
     y permitiendo solo caracteres seguros (incluyendo español, francés, portugués, chino y japonés).
     """
-    # Lista de cadenas que deben eliminarse completamente
-    cadenas_vacias = ['1=1', '2=2', '3=3', '4=4', '5=5', '6=6', '7=7', '8=8', '9=9''@@version', '@@hostname', '@@datadir', '@@tmpdir', '@@basedir', '@@innodb_version', '@@version_compile_os', 'root@']
+    # Lista de strings que deben eliminarse completamente
+    strings_vacios = ['1=1', '2=2', '3=3', '4=4', '5=5', '6=6', '7=7', '8=8', '9=9''@@version', '@@hostname', '@@datadir', '@@tmpdir', '@@basedir', '@@innodb_version', '@@version_compile_os', 'root@']
     texto_limpio = entrada_usuario
-    for cadena in cadenas_vacias:
+    for cadena in strings_vacios:
         texto_limpio = texto_limpio.replace(cadena, '')
     
     # Permitir solo letras (con acentos, diéresis, ñ, ç, ã, õ, ê, â, ô, î, û, à, è, ù, ë, ï, ö, ü, œ, æ, ÿ, ç, Ç), números, espacios, comas, puntos y caracteres Chinos y Japoneses
