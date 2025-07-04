@@ -7,7 +7,7 @@ def limpiar_entrada(entrada_usuario):
     permitiendo solo caracteres seguros (incluyendo español, francés, portugués, chino y japonés).
     """
     # Lista de strings que deben eliminarse completamente
-    strings_vacios = ['1=1', '2=2', '3=3', '4=4', '5=5', '6=6', '7=7', '8=8', '9=9''@@version', '@@hostname', '@@datadir', '@@tmpdir', '@@basedir', '@@innodb_version', '@@version_compile_os', 'root@', 'xp_']
+    strings_vacios = ['1=1', '2=2', '3=3', '4=4', '5=5', '6=6', '7=7', '8=8', '9=9''@@version', '@@hostname', '@@datadir', '@@tmpdir', '@@basedir', '@@innodb_version', '@@version_compile_os', 'root@', 'xp_', '.dmg', '.exe']
     texto_limpio = entrada_usuario
     for cadena in strings_vacios:
         texto_limpio = texto_limpio.replace(cadena, '')
@@ -25,7 +25,7 @@ def limpiar_entrada(entrada_usuario):
         'load_file', 'outfile', 'dumpfile', 'shutdown', 'exec', 'execute', 'xp_cmdshell', 'openrowset', 'openquery', 'sysobjects', 'syscolumns',
         'information_schema', 'pg_', 'pg_catalog', 'current_user', 'session_user', 'system_user', 'pg_sleep', 'pg_terminate_backend',
         
-        'file_priv', 'exploit', 'wget', 'hydra', 'nmap', '.exe', '0x', 'benchmark', '.dmg', 'bash'
+        'file_priv', 'exploit', 'wget', 'hydra', 'nmap', '0x', 'benchmark',  'bash'
     ]
     # Agrega el prefijo r'' por cada palabra
     palabras_prohibidas = [r'' + palabra for palabra in palabras_prohibidas]
