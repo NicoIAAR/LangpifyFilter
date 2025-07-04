@@ -3,8 +3,8 @@ import re
 
 def limpiar_entrada(entrada_usuario):
     """
-    Limpia el texto de entrada eliminando strings y palabras peligrosas,
-    y permitiendo solo caracteres seguros (incluyendo español, francés, portugués, chino y japonés).
+    Limpia el texto de entrada eliminando palabras peligrosas,
+    permitiendo solo caracteres seguros (incluyendo español, francés, portugués, chino y japonés).
     """
     # Lista de strings que deben eliminarse completamente
     strings_vacios = ['1=1', '2=2', '3=3', '4=4', '5=5', '6=6', '7=7', '8=8', '9=9''@@version', '@@hostname', '@@datadir', '@@tmpdir', '@@basedir', '@@innodb_version', '@@version_compile_os', 'root@', 'xp_']
