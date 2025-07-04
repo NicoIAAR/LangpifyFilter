@@ -24,7 +24,6 @@ def limpiar_entrada(entrada_usuario):
         '--', '#', ';', ' between ', 'count', 'benchmark', 'sleep', 'waitfor', 'xp_', '0x',
         'load_file', 'outfile', 'dumpfile', 'shutdown', 'exec', 'execute', 'xp_cmdshell', 'openrowset', 'openquery', 'sysobjects', 'syscolumns',
         'information_schema', 'pg_', 'pg_catalog', 'current_user', 'session_user', 'system_user', 'pg_sleep', 'pg_terminate_backend',
-        
         'file_priv', 'exploit', 'wget', 'hydra', 'nmap', '0x', 'benchmark',  'bash'
     ]
     # Agrega el prefijo r'' por cada palabra
