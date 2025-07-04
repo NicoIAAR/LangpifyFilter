@@ -7,7 +7,7 @@ def limpiar_entrada(entrada_usuario):
     y permitiendo solo caracteres seguros (incluyendo español, francés, portugués, chino y japonés).
     """
     # Lista de cadenas que deben eliminarse completamente
-    cadenas_vacias = ['1=1', '2=2', '3=3', '4=4', '5=5', '6=6', '7=7', '8=8', '9=9']
+    cadenas_vacias = ['1=1', '2=2', '3=3', '4=4', '5=5', '6=6', '7=7', '8=8', '9=9''@@version', '@@hostname', '@@datadir', '@@tmpdir', '@@basedir', '@@innodb_version', '@@version_compile_os', 'root@']
     texto_limpio = entrada_usuario
     for cadena in cadenas_vacias:
         texto_limpio = texto_limpio.replace(cadena, '')
@@ -24,8 +24,8 @@ def limpiar_entrada(entrada_usuario):
         '--', '#', ';', ' between ', 'count', 'benchmark', 'sleep', 'waitfor', 'xp_', '0x',
         'load_file', 'outfile', 'dumpfile', 'shutdown', 'exec', 'execute', 'xp_cmdshell', 'openrowset', 'openquery', 'sysobjects', 'syscolumns',
         'information_schema', 'pg_', 'pg_catalog', 'current_user', 'session_user', 'system_user', 'pg_sleep', 'pg_terminate_backend',
-        '@@version', '@@hostname', '@@datadir', '@@tmpdir', '@@basedir', '@@innodb_version', '@@version_compile_os',
-        'file_priv', 'root@', 'exploit', 'wget', 'hydra', 'nmap', '.exe', 'xp_', '0x', 'benchmark', '.dmg', 'bash'
+        
+        'file_priv', 'exploit', 'wget', 'hydra', 'nmap', '.exe', 'xp_', '0x', 'benchmark', '.dmg', 'bash'
     ]
     # Agrega el prefijo r'' por cada palabra
     palabras_prohibidas = [r'' + palabra for palabra in palabras_prohibidas]
