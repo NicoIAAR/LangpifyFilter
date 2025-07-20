@@ -7,7 +7,11 @@ def limpiar_entrada(entrada_usuario):
     permitiendo solo caracteres seguros (incluyendo español, francés, portugués, chino y japonés).
     """
     # Lista de strings que deben eliminarse completamente
-    strings_vacios = ['1=1', '2=2', '3=3', '4=4', '5=5', '6=6', '7=7', '8=8', '9=9''@@version', '@@hostname', '@@datadir', '@@tmpdir', '@@basedir', '@@innodb_version', '@@version_compile_os', 'root@', 'xp_', '.dmg', '.exe', '*']
+    strings_vacios = (
+        '1=1', '2=2', '3=3', '4=4', '5=5', '6=6', '7=7', '8=8', '9=9',
+        '@@version', '@@hostname', '@@datadir', '@@tmpdir', '@@basedir', '@@innodb_version', '@@version_compile_os',
+        'root@', 'xp_', '.dmg', '.exe', '*'
+    )
     texto_limpio = entrada_usuario
     for cadena in strings_vacios:
         texto_limpio = texto_limpio.replace(cadena, '')
@@ -15,7 +19,7 @@ def limpiar_entrada(entrada_usuario):
     # Permitir solo letras (con acentos, diéresis, ñ, ç, ã, õ, ê, â, ô, î, û, à, è, ù, ë, ï, ö, ü, œ, æ, ÿ, ç, Ç), números, espacios, comas, puntos y caracteres Chinos y Japoneses
     texto_limpio = re.sub(r'[^a-zA-Z0-9 áéíóúÁÉÍÓÚüÜñÑãõÃÕâêîôûÂÊÎÔÛàèùÀÈÙëïöüËÏÖÜœŒæÆÿŸçÇ\u4e00-\u9fff\u3040-\u30ff\u3400-\u4dbf,.]', '', texto_limpio)
     # Remove dangerous words
-    palabras_prohibidas = [
+    palabras_prohibidas = (
         'DATABASE', 'base de datos','mysql', 'SQL', 'SELECT', 'UPDATE', 'GET', 'DELETE', 'POST', 'PUT', 'TABLE', 'GROUP BY', 'ORDER BY', 'INSERT',
         'INNER JOIN', 'mongodb', 'mongo', 'mongod', 'mongoose', 'password', 'username', 'user', 'pass', 'root', 'admin', 'contraseña', 'ignore',
         'Ignore previous instructions', 'ignorar instrucciones previas', 'inspect', 'html', 'xss', 'iframe', 'script', 'ssh', 'http', 'https', 'localhost', 'hostname',
@@ -25,9 +29,9 @@ def limpiar_entrada(entrada_usuario):
         'load_file', 'outfile', 'dumpfile', 'shutdown', 'exec', 'execute', 'xp_cmdshell', 'openrowset', 'openquery', 'sysobjects', 'syscolumns',
         'information_schema', 'pg_', 'pg_catalog', 'current_user', 'session_user', 'system_user', 'pg_sleep', 'pg_terminate_backend',
         'file_priv', 'exploit', 'wget', 'hydra', 'nmap', '0x', 'benchmark',  'bash', 'curl'
-    ]
+    )
     # Agrega el prefijo r'' por cada palabra
-    palabras_prohibidas = [r'' + palabra for palabra in palabras_prohibidas]
+    palabras_prohibidas = tuple(r'' + palabra for palabra in palabras_prohibidas)
     for palabra in palabras_prohibidas:
         # Eliminar la palabra, sin importar mayúsculas/minúsculas
         texto_limpio = re.sub(palabra, '', texto_limpio, flags=re.IGNORECASE)
