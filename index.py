@@ -10,7 +10,7 @@ class LangpifyFilter:
     STRINGS_A_ELIMINAR = (
         '1=1', '2=2', '3=3', '4=4', '5=5', '6=6', '7=7', '8=8', '9=9', '@@version', 
         '@@hostname', '@@datadir', '@@tmpdir', '@@basedir', '@@innodb_version', 
-        '@@version_compile_os', 'root@', 'xp_', '.dmg', '.exe', '*'
+        '@@version_compile_os', 'root@', 'xp_', '.dmg', '.exe', '*', '.zip', '.rar', '.tar', '.gz', '.bz2', '.7z', '.tar.gz', '.tar.bz2', '.tar.7z'
     )
     
     PALABRAS_PROHIBIDAS = (
