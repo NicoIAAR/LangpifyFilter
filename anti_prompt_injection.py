@@ -1,7 +1,7 @@
 import re
 
 # Lista de patrones comunes de prompt injection (puedes ampliarla)
-PATRONES_SOSPECHOSOS = [
+PATRONES_SOSPECHOSOS = (
     r"(?i)ignore previous instructions",  # Ignorar instrucciones previas
     r"(?i)forget all previous",           # Olvidar todo lo anterior
     r"(?i)you are now",                  # Cambiar de rol
@@ -11,7 +11,7 @@ PATRONES_SOSPECHOSOS = [
     r"(?i)user:.*",                      # Instrucciones al usuario
     r"(?i)\[.*?\]",                    # Uso de corchetes para instrucciones
     r"(?i)```.*?```",                    # Bloques de código sospechosos
-]
+)
 
 def detectar_prompt_injection(texto):
     """Devuelve True si detecta patrones sospechosos de prompt injection."""

@@ -3,7 +3,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 
 # Ejemplos típicos de inyección SQL
-sql_injections = [
+sql_injections = (
     "' OR '1'='1' --",
     '" OR "1"="1" --',
     "' OR 1=1 --",
@@ -20,7 +20,7 @@ sql_injections = [
     '" UNION SELECT * FROM users --',
     "' DROP TABLE users; --",
     '" DROP TABLE users; --',
-]
+)
 
 # Inicializa el modelo de embeddings
 model = SentenceTransformer('all-MiniLM-L6-v2')
