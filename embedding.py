@@ -28,7 +28,7 @@ model = SentenceTransformer('all-MiniLM-L6-v2')
 # Calcula los embeddings de los ejemplos de inyección
 injection_embeddings = model.encode(sql_injections)
 
-def is_sql_injection(prompt, threshold=0.7):
+def is_sql_injection(prompt, threshold=0.5):
     """
     Retorna True si el prompt es similar a un patrón de inyección SQL.
     threshold: entre 0 y 1, mayor es más estricto.
