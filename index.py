@@ -15,8 +15,7 @@ class LangpifyFilter:
     
     PALABRAS_PROHIBIDAS = (
         'DATABASE', 'base de datos', 'mysql', 'SQL', 'UNION SELECT', 'UPDATE', 'GET', 'DELETE', 'POST', 'PUT', 
-        'DROP TABLE', 'GROUP BY', 'ORDER BY', 'INSERT', 'INNER JOIN', 'mongodb', 'mongo', 'mongod', 'mongoose', 
-        'password', 'username', 'user', 'pass', 'root', 'admin', 'contraseña', 'ignore', 
+        'DROP TABLE', 'GROUP BY', 'ORDER BY', 'INSERT', 'INNER JOIN', 'mongoose',  'mongodb', 'mongo', 'mongod','password', 'username', 'user', 'pass', 'root', 'admin', 'contraseña', 'ignore', 
         'Ignore previous instructions', 'ignorar instrucciones previas', 'inspect', 'html', 'xss', 'iframe', 
         'script', 'ssh', 'http', 'https', 'localhost', 'hostname', 'cookie', 'cookies', 'function', 'void', 
         'xhr', 'php', 'htmlentities', 'alert', 'xml', 'drop', 'truncate', 'alter', 'create', 'grant', 
